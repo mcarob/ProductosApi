@@ -27,13 +27,13 @@ def save_category(CategoryIn : CategoryInDB):
     return CategoryIn
 
 def get_category(cod=[]):
-    
     if len(cod)==0:
         return database_category
     else:
         dic_filtrado={}
         for key in database_category.keys():
-            if database_category[key]["cod_category"]==cod:
-                dic_filtrado[key]=database_category[key]
+
+            if (database_category[key].dict())["cod_category"] in cod:
+                dic_filtrado[key]=database_category[key].dict()
         return dic_filtrado
 
