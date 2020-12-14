@@ -26,5 +26,14 @@ def save_category(CategoryIn : CategoryInDB):
     database_category[generator["id"]]=CategoryIn
     return CategoryIn
 
-def getAll_category():
-    return database_category
+def get_category(cod=[]):
+    
+    if len(cod)==0:
+        return database_category
+    else:
+        dic_filtrado={}
+        for key in database_category.keys():
+            if database_category[key]["cod_category"]==cod:
+                dic_filtrado[key]=database_category[key]
+        return dic_filtrado
+

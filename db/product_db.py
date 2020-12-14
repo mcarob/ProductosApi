@@ -1,7 +1,7 @@
 from pydantic import BaseModel
 from typing import Dict
 
-class ProductoInDB(BaseModel):
+class ProductInDB(BaseModel):
     cod_product: int
     nom_product: str
     cod_category: str
@@ -11,7 +11,7 @@ class ProductoInDB(BaseModel):
 
 database_product = Dict[int, ProductInDB]
 database_product={
-            1: ProductoInDB(**{  "cod_product":1,
+            1: ProductInDB(**{  "cod_product":1,
                                 "nom_product":"Arándanos",
                                 "cod_category":1,
                                 "purchase_price":2500,
@@ -19,14 +19,14 @@ database_product={
                                 "dist_product":"Frecampo"
 
                             }),
-            2: ProductoInDB(**{  "cod_product":2,
+            2: ProductInDB(**{  "cod_product":2,
                                 "nom_product":"Atún",
                                 "cod_category":3,
                                 "purchase_price":1000,
                                 "sale_price":2000,
                                 "dist_product":"Ekono"
                             }),
-            3: ProductoInDB(**{  "cod_product":1,
+            3: ProductInDB(**{  "cod_product":1,
                                 "nom_product":"Manzana",
                                 "cod_category":2,
                                 "purchase_price":600,
