@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 from db.inventory_db import *
 from db.product_db import *
 from db.sale_db import *
@@ -7,9 +6,6 @@ from models.usuario import *
 from models.inventory import *
 from models.product import *
 from db.category_db import CategoryInDB,get_category,save_category
-=======
-from db.category_db import CategoryInDB,get_category,save_category,get_category
->>>>>>> Stashed changes
 from models.category import categoryIn,categoryOut
 import datetime
 import hashlib 
