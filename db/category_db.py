@@ -32,8 +32,8 @@ def get_category(cod=[]):
     else:
         dic_filtrado={}
         for key in database_category.keys():
-
-            if (database_category[key].dict())["cod_category"] in cod:
-                dic_filtrado[key]=database_category[key].dict()
+            print( database_category[key]["cod_category"])
+            if database_category[key]["cod_category"]==cod:
+                dic_filtrado[key]=database_category[key]
         return dic_filtrado
 
