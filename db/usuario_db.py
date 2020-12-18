@@ -29,6 +29,11 @@ database_usuario={
                                 "nom_usuario":"felipe",
                                 "pass_usuario":"81dc9bdb52d04dc20036dbd8313ed055"
                             }),
+            5: usuarioInDB(**{  "cod_usuario":5,
+                                "correo_usuario":"admin",
+                                "nom_usuario":"Administrador",
+                                "pass_usuario":"81dc9bdb52d04dc20036dbd8313ed055"
+                            }),
                     }
 generator = {"id":3}
 

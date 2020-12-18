@@ -3,7 +3,7 @@ from typing import Dict
 
 class CategoryInDB(BaseModel):
     cod_category: int = 0
-    nom_category: str ="galletas"
+    nom_category: str 
 
 database_category = Dict[int, CategoryInDB]
 database_category={

@@ -25,9 +25,8 @@ products.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 @products.get("/categorias/{peticion}")
-async def getCategorias(peticion: str):
+def getCategorias(peticion: str):
     if peticion == "todas":
         return get_category()
     else:
@@ -40,7 +39,7 @@ async def getCategorias(peticion: str):
 
 
 @products.put("/categorias/registrarCat/")
-async def ingresar_categoria(registro_categoria: CategoryInDB):
+def ingresar_categoria(registro_categoria: CategoryInDB):
     nuevaCategoria=CategoryInDB(**registro_categoria.dict())
     return save_category(nuevaCategoria)
 
