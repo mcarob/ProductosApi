@@ -1,46 +1,60 @@
 from pydantic import BaseModel
 from typing import Dict
 
+
+    # cod_producto: int
+    # nom_producto: str
+    # cod_category: int
+    # detalle_producto: str
+    # cantidad_producto: int
+    # precio_compra: int
+    # precio_venta: int
 class ProductInDB(BaseModel):
-    cod_product: int
-    nom_product: str
-    cod_category: str
-    purchase_price: int
-    sale_price: int
-    dist_product: str
+    cod_producto: int =0
+    nom_producto: str
+    cod_category: int
+    precio_compra: int
+    precio_venta: int
+    detalle_producto: str
+    cantidad_producto: int =0
+
 
 database_product = Dict[int, ProductInDB]
 database_product={
-            1: ProductInDB(**{  "cod_product":1,
-                                "nom_product":"Arándanos",
+            1: ProductInDB(**{  "cod_producto":1,
+                                "nom_producto":"Arándanos",
                                 "cod_category":1,
-                                "purchase_price":2500,
-                                "sale_price":4500,
-                                "dist_product":"Frecampo"
+                                "precio_compra":2500,
+                                "precio_venta":4500,
+                                "detalle_producto":"fruta roja x500gr",
+                                "cantidad_producto":0
 
                             }),
-            2: ProductInDB(**{  "cod_product":2,
-                                "nom_product":"Atún",
-                                "cod_category":3,
-                                "purchase_price":1000,
-                                "sale_price":2000,
-                                "dist_product":"Ekono"
+            2: ProductInDB(**{  "cod_producto":2,
+                                "nom_producto":"Atún",
+                                "cod_category":1,
+                                "precio_compra":2500,
+                                "precio_venta":4500,
+                                "detalle_producto":"atún sin mercurio x300gr",
+                                "cantidad_producto":0
                             }),
-            3: ProductInDB(**{  "cod_product":1,
-                                "nom_product":"Manzana",
-                                "cod_category":2,
-                                "purchase_price":600,
-                                "sale_price":1000,
-                                "dist_product":"Frecampo"
+            3: ProductInDB(**{  "cod_producto":3,
+                                "nom_producto":"Manzana",
+                                "cod_category":1,
+                                "precio_compra":3000,
+                                "precio_venta":5000,
+                                "detalle_producto":"Manzana organica 1kg",
+                                "cantidad_producto":0
                             })
                     }
 
 generator = {"id":3}
 
 def save_product(product_in_db: ProductInDB):
+    print(generator["id"])
     generator["id"] = generator["id"] + 1
-    product_in_db.cod_product = generator["id"]
-    database_product.append(product_in_db)
+    product_in_db.cod_producto = generator["id"]
+    database_product[generator["id"]]=product_in_db
     return product_in_db
 
 def getAll_product():

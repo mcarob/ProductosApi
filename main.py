@@ -54,3 +54,15 @@ async def buscarUsuario(usuarioC : usuarioIn):
             raise HTTPException(status_code=201, detail="La contraseña es incorrecta")
     else:
         raise HTTPException(status_code=201, detail="El correo no existe en la base de datos")
+
+@products.get("/productos/{peticion}")
+def getProductos(peticion: str):
+    if peticion == "todas":
+        return getAll_product()
+    raise HTTPException(status_code=404, detail="Error en la petición de categorias")
+
+
+@products.put("/categorias/registrarProduct/")
+def ingresar_productos(productoIn: ProductInDB):
+    nuevoProducto=ProductInDB(**productoIn.dict())
+    return save_product(nuevoProducto)
