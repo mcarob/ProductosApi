@@ -57,8 +57,17 @@ async def buscarUsuario(usuarioC : usuarioIn):
 
 @products.get("/productos/{peticion}")
 def getProductos(peticion: str):
+    database_productout = Dict[int, productOut]
+    database_productout={}
     if peticion == "todas":
-        return getAll_product()
+        productosTodos=getAll_product()
+        for producto in productosTodos:
+            cod_categoria=productosTodos[producto].cod_category
+            producto1=get_category([cod_categoria])[cod_categoria]
+            print(producto1['nom_category'])
+
+            database_productout[producto]=productOut(**productosTodos[producto].dict(),nom_category = producto1['nom_category'])
+        return database_productout
     raise HTTPException(status_code=404, detail="Error en la petición de categorias")
 
 

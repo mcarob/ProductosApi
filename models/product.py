@@ -12,8 +12,8 @@ class productIn(BaseModel):
 
 
 class productOut(BaseModel):
-    cod_product: int
-    nom_product: str
+    cod_producto: int
+    nom_producto: str
     nom_category: str
     detalle_producto: str
     cantidad_producto: int
